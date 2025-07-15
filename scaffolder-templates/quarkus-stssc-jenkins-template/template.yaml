@@ -153,6 +153,7 @@ spec:
           gitRepoName: ${{ parameters.name }}-gitops
           gitWebhookSecret: openshift
           defaultBranch: master
+          verifyCommits: ${{ parameters.repoVerifyCommits }}
 
     - action: fs:rename
       id: renameComponentDir

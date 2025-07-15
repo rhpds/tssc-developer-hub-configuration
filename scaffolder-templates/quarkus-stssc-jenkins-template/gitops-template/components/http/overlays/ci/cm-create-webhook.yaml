@@ -78,6 +78,8 @@ data:
               PRIVATE-TOKEN: '{{  git_token }}'
             validate_certs: false
             status_code: [201]
+
+{% endraw %}
 {%- if values.verifyCommits != 'enabled' %}
 {% raw %}
 
@@ -99,4 +101,4 @@ data:
             status_code: [201]
 
 {% endraw %}
-{% endraw %}
+{%- endif %}

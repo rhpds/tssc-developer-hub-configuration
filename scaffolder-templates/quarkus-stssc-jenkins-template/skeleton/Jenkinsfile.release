@@ -89,7 +89,7 @@ EOF
             }
         }
 
-        stage("update-image-tag-for-stage") {
+        stage("update-image-tag-for-prod") {
             steps {
                 container('skopeo') {
                     sh '''
