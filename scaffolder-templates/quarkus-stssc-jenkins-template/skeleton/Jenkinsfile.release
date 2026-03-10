@@ -14,7 +14,7 @@ pipeline {
             spec:
               containers:
               - name: jnlp
-                image: quay.io/jkopriva/rhtap-jenkins-agent:0.1
+                image: quay.io/rhpds/tssc-jenkins-promote-agent:0.1
                 tty: true
                 args: ["${computer.jnlpmac}","${computer.name}"]
                 securityContext:

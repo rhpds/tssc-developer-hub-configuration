@@ -101,7 +101,7 @@ commands:
         git config --global gpg.x509.program /projects/home/bin/gitsign
         git config --global gpg.format x509
         git config --global gitsign.fulcio http://fulcio-server.tssc-tas.svc
-        git config --global gitsign.issuer https://sso.${{values.cluster}}/realms/trusted-artifact-signer
+        git config --global gitsign.issuer https://sso.${{values.cluster}}/realms/tssc-iam
         git config --global gitsign.rekor http://rekor-server.tssc-tas.svc
         git config --global gitsign.clientid trusted-artifact-signer
       group:

@@ -14,7 +14,7 @@ pipeline {
             spec:
               containers:
               - name: jnlp
-                image: quay.io/redhat-gpte/tssc-jenkins-agent:0.1
+                image: quay.io/rhpds/tssc-jenkins-build-agent:0.1
                 tty: true
                 args: ["${computer.jnlpmac}","${computer.name}"]
                 securityContext:
@@ -54,7 +54,7 @@ pipeline {
         GITOPS_REPO_URL = 'https://${{values.gitlabHost}}/${{values.destination}}-gitops'
 {%- if values.verifyCommits == 'enabled' %}
         TUF_MIRROR = 'http://tuf.tssc-tas.svc'
-        KEYCLOAK_ISSUER_URL = 'https://${{values.ssoHost}}/realms/trusted-artifact-signer'
+        KEYCLOAK_ISSUER_URL = 'https://${{values.ssoHost}}/realms/tssc-iam'
 {%- endif %}
     }
     stages {
@@ -144,6 +144,7 @@ pipeline {
         stage('acs') {
             environment {
                 INSECURE_SKIP_TLS_VERIFY = 'true'
+                GRPC_ENFORCE_ALPN_ENABLED = 'false'
             }
             parallel {
                 stage('acs_deploy_check') {

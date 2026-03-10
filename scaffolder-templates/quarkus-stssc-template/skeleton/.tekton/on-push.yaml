@@ -42,7 +42,7 @@ spec:
     - name: certificate-identity
       value: '{{body.commits[0].author.email}}'
     - name: oidc-issuer
-      value: https://sso.${{values.cluster}}/realms/trusted-artifact-signer
+      value: https://sso.${{values.cluster}}/realms/tssc-iam
     - name: verify-commit
       value: 'true'
 {%- endif %}

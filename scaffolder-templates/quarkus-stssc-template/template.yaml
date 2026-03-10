@@ -167,12 +167,9 @@ spec:
       action: publish:gitlab
       input:
         sourcePath: gitops
-        allowedHosts: ['gitlab-gitlab.${{ steps["fetch-provision-data"].output.entity.metadata.labels["ocp-apps-domain"] }}']
-        description: This is GitOps repository for ${{ parameters.name }}
         repoUrl: 'gitlab-gitlab.${{ steps["fetch-provision-data"].output.entity.metadata.labels["ocp-apps-domain"] }}?owner=${{
           parameters.repoOwner }}&repo=${{parameters.name}}-gitops'
         defaultBranch: master
-        protectDefaultBranch: false
         repoVisibility: "public"
 
     - id: create-argocd-resources
